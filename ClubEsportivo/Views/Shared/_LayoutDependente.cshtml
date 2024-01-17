@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Jovem_Programador_WEB</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Jovem_Programador_WEB.styles.css" asp-append-version="true" />
+    <!--FONTE GOOGLE FONTES-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/522fbec30d.js" crossorigin="anonymous"></script>
+
+    <style>
+      #sair{
+          font-size: 30px;
+          margin-left: 10px;
+          margin-bottom: 4px;
+          cursor: pointer;
+          color: saddlebrown;
+      }
+      h2{
+          color: saddlebrown;
+      }
+
+      body{
+            background-color: rgb(246, 244, 233);
+      }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        
+        <nav class="navbar shadow navbar-dark " style="background-color: rgba( 241, 238, 221)">
+            <div class="container-fluid">
+                <a asp-controller="Login" asp-action="Index" id="sair">
+                    <i class="fa-solid fa-right-from-bracket fa-rotate-180"></i>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                </button>
+                
+                <center>
+                    <h2 style="font-family: Agbalumo; margin-right: 320px;">Bem-vindo</h2>
+                </center>
+                <img src="img/logo03.jpeg" class="float-right" width="75">
+            </div>
+        </nav>
+
+        <div>
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+</header>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "_LayoutDeslogado";
+}
+
+@if (ViewData["MsgErro"] != null)
+{
+    <div class="alert-danger">
+        @ViewData["MsgErro"]
+    </div>
+}
+@model Login
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>tela de login</title>
+    <link href="/img/logo03.jpeg" rel="stylesheet" integrity="sha384-4bw+/aepp/yc94hepvnvgizdgic5+vknbqngchekrqn+ptmohdexuppvndjzqiu9" crossorigin="anonymous">
+    <style>
+
+        #button {
+            background-color: saddlebrown;
+            border:none;
+            border-radius: 26px;
+            cursor:pointer;
+        }
+        #button:hover{
+                background-color: rgb(227, 123, 49);
+                color: rgb(249, 226, 210);
+        }
+
+        #esqueciSenha{
+            text-decoration: none;
+            color: black;
+        }
+
+        #esqueciSenha:hover{
+                color: rgb(107, 107, 107);
+        }
+            
+    </style>
+</head>
+<body>
+    <div class="container mt-4 ">
+        <div class="row align-items-center mx-auto col-lg-5">
+
+            
+            <form class="p-4 p-md-5 border rounded-3 bg-light" asp-controller="Login" asp-action="BuscarLogin" method="post">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inputUsuario" placeholder="Usuario" asp-for="Usuario" />
+                    <label for="inputUsuario" class="form-label"><i class="fa-solid fa-user fa-shake" style="margin-right: 10px"></i>Usuário</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Senha" asp-for="Senha" />
+                    <label for="inputSenha" class="form-label"><i class="fa-solid fa-key fa-shake" style="margin-right: 10px"></i>Senha</label>
+                </div>
+
+                <button id="button" class="w-100 btn btn-lg btn-secondary" role="button">Entrar</button>
+                
+                <button id="button" style="margin-top: 5px;" class="w-100 btn btn-lg btn-secondary" role="button" asp-controller="Cadastro" asp-action="Index">Cadastrar</button>
+
+                <p>               
+                <div class="col12  text-center">
+                        <a id="esqueciSenha" asp-controller="Login" asp-action="EsqueciSenha" class="link-primary">Esqueci a senha</a>
+                </div>
+                </p>
+            </form>
+
+
+            <style>
+                body {
+                    background-color: rgba(36, 19, 9);
+                     /* Substitua com a cor desejada em hexadecimal, RGB ou nome da cor */
+                }
+            </style>
+
+        </div>
+     </div>
+   
+</body>
+</html>

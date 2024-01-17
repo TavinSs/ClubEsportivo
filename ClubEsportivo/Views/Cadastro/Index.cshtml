@@ -1,0 +1,124 @@
+﻿@{
+    Layout = "_LayoutDependente";
+}
+
+@if (ViewData["MsgErro"] != null)
+{
+    <div class="alert-danger">
+        @ViewData["MsgErro"]
+    </div>
+}
+
+@model Views_Cadastro_Index
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <style>
+    .mb-3 {
+        width: 50%;
+        margin-left: 40px;
+    }
+
+    #botaoCadastrar {
+        margin-left: 40px;
+        background-color: saddlebrown;
+        border: none;
+        border-radius: 26px;
+        cursor: pointer;
+        color:#ccc;
+    }
+    #botaoCadastrar:hover {
+        background-color: rgb(227, 123, 49);
+        color: rgb(249, 226, 210);
+    }
+    #voltar {
+        background-color: saddlebrown;
+        border: none;
+        border-radius: 26px;
+        cursor: pointer;
+        color:#ccc;
+    }
+    #voltar:hover {
+        background-color: rgb(227, 123, 49);
+        color: rgb(249, 226, 210);
+    }
+    #text{
+	    border: hidden;
+        border-radius: 25px;
+        cursor: text;
+        width: 360px;
+        height: 35px;
+        padding-left: 10px;
+    }
+    </style>
+</head>
+
+<div class="text-center">
+    <h1 class="display-4">Cadastrar usuário</h1>
+
+</div>
+<body>
+<form>
+
+
+    <div class="mb-3">
+        <label for="Qual deseja ser">Qual das duas opções abaixo você deseja ser:</label>
+        
+    </div>
+   <div class="mb-3">
+    <input name="opção" type="radio" value="1" /> Titular
+    <input name="opção" type="radio" value="2" /> Dependente
+    </div>
+
+
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" id="text" class="form-control" placeholder="Digite seu nome completo">
+    </div>
+    <div class="mb-3">
+        <label for="Data de nascimento" class="form-label">Data de nascmimento</label>
+        <input type="date" id="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="Informe o seu Email" class="form-label">Email</label>
+        <input type="email" id="text" class="form-control" placeholder="Digite seu Email">
+    </div>
+    <div class="mb-3">
+        <label for="nome" class="form-label">CPF</label>
+        <input type="text" id="text" class="form-control" placeholder="Digite seu CPF">
+    </div>
+    <div class="mb-3">
+        <label for="nome" class="form-label">CEP</label>
+        <input type="text" id="text" class="form-control" placeholder="Digite seu CEP">
+    </div>
+<div class="mb-3">
+    <label for="usuario" class="form-label">Usuário</label>
+    <input type="text" id="text" class="form-control"  placeholder="Crie um usuário">
+</div>
+ 
+    <div class="mb-3">
+        <label for="senha" class="form-label">Senha</label>
+        <input type="text" id="text"class="form-control" placeholder="Crie uma senha">
+    </div>
+    <div class="mb-3">
+        <label for="senha" class="form-label">Confirmar senha</label>
+        <input type="text" id="text" class="form-control" placeholder="Confirme sua senha">
+    </div>
+<button id="botaoCadastrar" type="submit" onclick="mensagemTela()" class="btn btn-secundary">Cadastrar</button>
+<a class="btn btn-secundary" id="voltar" asp-controller="Login" asp-action="Index" role="button">Voltar</a>
+</form>
+</body>
+
+<script>
+    //Mensagem de cadastro bem sucessido
+    function mensagemTela() {
+        var nomeElement = document.getElementById('text');
+        var nome = nomeElement.value;
+
+        alert(nome + ' foi cadastrado com sucesso!');
+    }
+    
+</script>

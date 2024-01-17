@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Jovem_Programador_WEB</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Jovem_Programador_WEB.styles.css" asp-append-version="true" />
+    <!--FONTE GOOGLE FONTES-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+    <!--ICONE FONTAWESOME-->
+    <script src="https://kit.fontawesome.com/522fbec30d.js" crossorigin="anonymous"></script>
+
+    <style>
+        .navbar{
+            margin-bottom: 40px;
+            position: fixed;
+        }
+        .BmVd{
+            color: saddlebrown;
+        }
+        body{
+            background-color: rgb(246, 244, 233);
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+
+
+        <nav class="navbar shadow navbar-dark " style="background-color: rgba( 241, 238, 221)">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                    <img src="img/icone-cardapio.png" style="width: 50px; height: 50px">
+                </button>
+                <center>
+                    <h2 style="font-family: Agbalumo" class="BmVd">Bem-vindo</h2>
+                </center>
+                <img src="img/logo03.jpeg" class="float-right" width="75">
+            </div>
+        </nav>
+
+
+
+        <div class="offcanvas offcanvas-start d-flex flex-column flex-shrink-0 p-3 text-bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 280px;">
+
+
+            <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <img  src="https://img.freepik.com/vetores-premium/ilustracao-de-um-indio-brasileiro_850997-494.jpg?w=740" alt="ERROR" width="50" height="50" class="rounded-circle me-4">
+                <span class="fs-5 text-black text-">Admin </span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a asp-controller="Evento" asp-action="Index" class="nav-link text-black" aria-current="page">
+                        <i class="fa-regular fa-calendar-days" style="margin-right: 10px"></i>
+                        Eventos
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Fatura" asp-action="Index" class="nav-link text-black">
+                        <i class="fa-solid fa-money-bill-1-wave" style="margin-right: 8px"></i>
+                        Fatura
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Exame" asp-action="Index" class="nav-link text-black">
+                        <i class="fa-solid fa-microscope" style="margin-right: 10px"></i>
+                        Exame
+                    </a>
+                </li>
+
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-black text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                        <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                    </svg>
+                    <strong></strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                    <li><a class="dropdown-item" asp-controller="Login" asp-action="Index">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+
+      
+
+            
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Jovem_Programador_WEB
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Jovem_Programador_WEB.styles.css" asp-append-version="true" />
+    <!--ICONE FONTAWESOME-->
+    <script src="https://kit.fontawesome.com/522fbec30d.js" crossorigin="anonymous"></script>
+    <!--FONTE GOOGLE FONTES-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+<style>
+        #planos {
+            background-color: rgba( 241, 238, 221);
+        }
+
+        #fotoAssociado {
+            margin-left: 290px;
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: rgba( 241, 238, 221)">
+          
+            <div class="container-fluid" style="margin-left: 40.5%">
+                <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+                        <div class="d-flex justify-content-center align-items-center flex-column" style="width: 100%; align-content: center;">
+                            <a class="navbar-brand" asp-area="">
+                                <img src="/img/logo03.jpeg" alt="logo" class="img-fluid" style="max-width: 100px; align-content:center;">
+                            </a>
+                            <div class="login-text">
+                                <span class="navbar-text mx-center" >
+                                    <h4 style="font-family: Agbalumo; text-align: center;"> Associação Atlética Acauã </h4>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                     
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    
+    <div id="planos">
+        <hr />
+        <img id="fotoAssociado" src="~/img/tornesseAssociado.png" alt="tituloPlanos" style="width: 50%; margin-left: 25%;" /><br />
+        <img src="~/img/planoIndividual.png" alt="plano1" style="width: 50%"/>
+        <img src="~/img/planoProprietario.png" alt="plano2" style="width: 50%"/>
+        <img src="img/planoFamiliar.png" alt="plano3" style="width: 50%"/>
+        <img src="~/img/torneseFrase.png" alt="informacao" style="width: 50%"/>
+
+    </div>
+</body>
+</html>

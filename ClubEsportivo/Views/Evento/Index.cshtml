@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcX3QK79sspStLELtv5eAqF7BGq18l9LbuYsfn4k59yLc21T/QeMxI3IuY" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-lQxBHjF1pJAYwTO1YYIqrXU1zoGvtO2I6YDiT84y8A7Q/0WB0F+Mw8piNNlAnIca" crossorigin="anonymous"></script>
+    <!--FONTAWESOME-->
+    <script src="https://kit.fontawesome.com/522fbec30d.js" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: 1fr;
+        }
+
+        .card {
+            margin-top: 50px;
+        }
+
+        select {
+            float: right;
+        }
+
+        .btn {
+            margin-left: 200px;
+        }
+
+        #carouselExampleSlidesOnly img{
+            border-radius: 50px;
+        }
+
+        #header {
+            margin-top: 42px;
+        }
+
+        .card-body input{
+            padding: 4px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 id="header">Eventos</h1>
+            <h3>Venha conferir os nossos eventos!</h3>
+
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="imgEvento/campeonatoDeSorteio.png" class="d-block" style="width: 75%;" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgEvento/canastraAcaua.png" class="d-block" style="width: 75%;" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgEvento/feiojoadaAcaua.png" class="d-block" style="width: 75%;" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+
+            <div class="card">
+                <div style="background-color: rgba( 227, 224, 207)" class="card-header">
+                    <i class="fa-solid fa-medal"></i> Campeonato
+                    <select id="inscritosCampeonato">
+                        <option selected>Inscritos</option>
+                        <option>Otavio</option>
+                        <option>Renata</option>
+                        <option>Matheus</option>
+                        <option>Mario</option>
+                        <option>Vinicius</option>
+                    </select>
+                </div>
+                <div style="background-color: rgba( 241, 238, 221)" class="card-body">
+                    <h5 class="card-title">Inscrição</h5>
+                    <p class="card-text">Venha se inscrever para o primeiro campeonato sorteado de Tênis do clube <br /><br />
+                       Campeonato inícia dia 25/08/2024
+                    </p>
+                    <input type="text" id="nomeCampeonato" placeholder="Nome" />
+                    <a href="#" class="btn btn-primary" style="background-color: #7d411e; border: 0px;" onclick="adicionarInscricao('inscritosCampeonato', 'nomeCampeonato', 'Campeonato')">Increva-se clicando aqui</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="background-color: rgba( 227, 224, 207)" class="card-header">
+                    <i class="fa-solid fa-people-group"></i> Torneio
+                    <select id="inscritosTorneio">
+                        <option selected>Inscritos</option>
+                        <option>Bruno</option>
+                        <option>Pablo</option>
+                        <option>Matheus</option>
+                        <option>Pedro</option>
+                        <option>Marcos</option>
+                    </select>
+                </div>
+                <div style="background-color: rgba( 241, 238, 221)" class="card-body">
+                    <h5 class="card-title">Inscrição</h5>
+                    <p class="card-text">Queridas mulheres da família, convido todas vocês para participarem do nosso torneio exclusivo de canastra no clube, onde poderemos compartilhar risadas e estratégias.<br /><br />
+                        05/10/2024 à partir das 13H30.
+                    </p>
+                    <input type="text" id="nomeTorneio" placeholder="Nome" />
+                    <a href="#" class="btn btn-primary" style="background-color: #7d411e; border: 0px;" onclick="adicionarInscricao('inscritosTorneio', 'nomeTorneio', 'Torneio')">Increva-se clicando aqui</a>
+                </div>
+            </div>
+            <div class="card">
+                <div style="background-color: rgba( 227, 224, 207)" class="card-header">
+                    <i class="fa-solid fa-utensils"></i> Festa
+                    <select id="inscritosFesta">
+                        <option selected>Inscritos</option>
+                        <option>Enzo</option>
+                        <option>Lazaro</option>
+                        <option>Paola</option>
+                        <option>Sabrina</option>
+                        <option>Renan</option>
+                    </select>
+                </div>
+                <div style="background-color: rgba( 241, 238, 221)" class="card-body">
+                    <h5 class="card-title">Inscrição</h5>
+                    <p class="card-text">Desfrute conosco de uma feijoada irresistível e celebre a alegria dos sabores compartilhados em boa companhia!<br /> <br />
+                    17/06/2024 à partir das 12H00.
+                    </p>
+                    <input type="text" id="nomeFesta" placeholder="Nome" />
+                    <a href="#" class="btn btn-primary" style="background-color: #7d411e; border: 0px;" onclick="adicionarInscricao('inscritosFesta', 'nomeFesta', 'Festa')">Increva-se clicando aqui</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function adicionarInscricao(idSelect, idInput, evento) {
+            var select = document.getElementById(idSelect);
+            var input = document.getElementById(idInput);
+            var nome = input.value.trim();
+
+            if (nome !== "") {
+                var novaOpcao = document.createElement('option');
+                novaOpcao.text = nome;
+                select.add(novaOpcao);
+
+                alert(nome + ' foi inscrito no evento ' + evento + '!');
+                input.value = ""; // Limpar o campo de entrada após a inscrição
+            } else {
+                alert("Por favor, insira um nome válido.");
+            }
+        }
+    </script>
+</body>
+</html>

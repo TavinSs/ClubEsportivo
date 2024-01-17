@@ -1,0 +1,305 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <h3 class="display-4"><strong> </strong></h3>
+</div>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <!--FONTE-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            font-family: Kanit;
+        }
+
+        .slides {
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+        }
+
+            .slide img {
+                width: 100%;
+            }
+
+        .navigation {
+            text-align: center;
+        }
+
+        .carousel {
+            text-align: center;
+        }
+
+        .buttons {
+            margin-top: 10px;
+        }
+        body{
+            background-color: rgb(246, 244, 233);
+        }
+        .card{
+            background-color: rgba( 241, 238, 221);
+        }
+
+        .container {
+            display: grid;
+            grid-auto-flow:column;
+            grid-auto-columns: 1fr;
+        }
+        header{
+           
+        }
+
+        #header video {
+            border-radius: 50px;
+            width: 90%;
+            float: right;
+            
+        }
+
+        #header p {
+            font-size: 17px;
+            border: 1px solid;
+            border-radius: 50px;
+            padding: 20px;
+        }
+
+        .divisao {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        #nossaEstrutura {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        #estruturaGeral {
+            border: 1px solid;
+            border-radius: 50px;
+            padding-bottom: 50px;
+            padding-top: 40px;
+        }
+
+        #estruturaGeral img{
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+
+        #estruturaGeral h1 {
+            margin-top: 90px;
+        }
+
+        #estruturaGeral p {
+            font-size: 20px;
+        }
+
+        .direita {
+            margin-left: 49px;
+        }
+
+        .esquerda { 
+            margin-left: 80px;
+        }
+
+       .slide video {
+           border-radius: 50px;
+       }
+
+
+    </style>
+</head>
+<body>
+
+    <!--CARROSSEL-->
+
+    <div class="slides">
+        <div class="slide">
+            <video loop width="100%" height="100%" style="object-fit: cover;" src="/img/pexels-kindel-media-8212256 (1080p).mp4" alt="slide1"></video>
+        </div>
+        <div class="slide">
+            <video loop width="100%" height="100%" style="object-fit: cover;" src="/img/playgroundIndio.mp4" alt="slide2"></video>
+        </div>
+        <div class="slide">
+            <video loop width="100%" height="100%" style="object-fit: cover;" src="/img/piscinaIndio2.mp4" alt="slide3"></video>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <label for="slide1"></label>
+        <label for="slide2"></label>
+        <label for="slide3"></label>
+    </div>
+    <div class="carousel">
+        <div class="buttons">
+            <input type="radio" name="carousel" id="slide1" checked>
+            <input type="radio" name="carousel" id="slide2">
+            <input type="radio" name="carousel" id="slide3">
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const radioButtons = document.querySelectorAll('[name="carousel"]');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            // Pausa o vídeo do slide atual
+            const currentVideo = slides[currentSlide].querySelector('video');
+            currentVideo.pause();
+
+            // Esconde o slide atual
+            slides[currentSlide].style.display = 'none';
+            radioButtons[currentSlide].checked = false;
+
+            // Atualiza o índice do slide atual
+            currentSlide = (currentSlide + 1) % slides.length;
+
+            // Exibe o novo slide
+            slides[currentSlide].style.display = 'block';
+            radioButtons[currentSlide].checked = true;
+
+            // Inicia o vídeo do novo slide
+            const newVideo = slides[currentSlide].querySelector('video');
+            newVideo.play();
+        }
+
+        // Define um temporizador para alternar automaticamente os slides a cada 4 segundos (4000 ms)
+        const interval = setInterval(nextSlide, 4000);
+
+        for (let i = 0; i < radioButtons.length; i++) {
+            radioButtons[i].addEventListener('change', function () {
+                // Pausa o vídeo do slide atual
+                const currentVideo = slides[currentSlide].querySelector('video');
+                currentVideo.pause();
+
+                // Esconde o slide atual
+                slides[currentSlide].style.display = 'none';
+
+                // Atualiza o índice do slide atual
+                currentSlide = i;
+
+                // Exibe o novo slide
+                slides[currentSlide].style.display = 'block';
+
+                // Inicia o vídeo do novo slide
+                const newVideo = slides[currentSlide].querySelector('video');
+                newVideo.play();
+
+                clearInterval(interval); // Limpa o temporizador ao clicar em um botão de opção
+            });
+        }
+
+        // Defina o primeiro botão de opção como "selecionado" por padrão
+        radioButtons[0].checked = true;
+        slides[0].style.display = 'block';
+    </script>
+
+    <hr / class="divisao">
+
+    <!--NOSSA ESTRUTURA-->
+    <div class="container">
+        <div>
+            <h1 style="font-family: Agbalumo; font-size: 55px;" id="nossaEstrutura">Nossa estrutura</h1>
+        </div>
+    </div>
+
+    <div id="estruturaGeral">
+    <div class="container">
+        <div>
+            <img width="630px" height="400px" src="/img/quadra.jpg" alt="QUADRA" />
+        </div>
+        <div>
+            <h1 class="direita"><b>Quadra Poliesportiva</b></h1>
+                <p class="direita">
+                A quadra poliesportiva de nosso clube é um verdadeiro centro<br />de atividades e emoções, onde a paixão pelo esporte se<br />manifesta em sua plenitude. Localizada estrategicamente no coração da nossa sede, a quadra é um espaço dinâmico que oferece possibilidades ilimitadas para a prática esportiva e a socialização entre os membros.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+                <h1 class="esquerda"><b>Academia</b></h1>
+                <p class="esquerda">A academia de nosso clube é um verdadeiro templo<br />dedicado à promoção da saúde, bem-estar e superação pessoal. Localizada em um ambiente acolhedor, oferece<br />aos nossos sócios um espaço moderno e equipado para<br />a prática de atividades físicas, incentivando um estilo<br />de vida ativo e saudável.</p>
+        </div>
+        <div>
+            <img width="630px" height="400px" src="/img/academia.jpg" alt="ACADEMIA" />
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+            <img width="630px" height="400px" src="/img/piscinaIndio.jpg" alt="PISCINA" />
+        </div>
+        <div>
+                <h1 class="direita"><b>Piscina</b></h1>
+                <p class="direita">
+                A piscina do nosso clube é mais do que um simples espaço aquático; é um oásis de relaxamento, diversão e encontros<br />sob o céu aberto. Estrategicamente localizada em meio a uma paisagem cuidadosamente planejada, ela se torna o refúgio perfeito para sócios em busca de momentos de lazer e<br />bem-estar.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+                <h1 class="esquerda"><b>Restaurante</b></h1>
+                <p class="esquerda">Próximo à piscina do nosso clube, encontra-se um<br />restaurante que transcende a mera experiência<br />gastronômica, tornando-se um verdadeiro ponto<br />de encontro para os sócios que buscam deleitar-se<br />com sabores excepcionais em um ambiente<br />acolhedor e elegante.</p>
+        </div>
+        <div>
+            <img width="630px" height="400px" src="/img/restaurante.jpg" alt="RESTAURANTE" />
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+            <img width="630px" height="400px" src="/img/playground.jpg" alt="PLAYGROUND" />
+        </div>
+        <div>
+                <h1 class="direita"><b>Playground</b></h1>
+                <p class="direita">
+                O playground do nosso clube é um espaço mágico e vibrante,<br />onde a alegria das crianças ecoa em meio às risadas,<br />brincadeiras e aventuras. Estrategicamente projetado para estimular a imaginação e promover a atividade física, o playground é mais do que um simples local de recreação<br />– é um universo lúdico que cativa os corações dos nossos pequenos sócios.
+            </p>
+        </div>
+    </div>
+
+    </div>
+
+
+    <!--CABEÇALHO-->
+    <hr class="divisao"/>
+    <div class="container" id="header">
+        <div>
+            <p>
+                <b>
+                    Fundada em 15 de março de 1921, a Associação Atlética Acauã emerge como um ícone sólido e resiliente no cenário esportivo. Com um legado que atravessa décadas, esta instituição representa mais do que simplesmente uma equipe esportiva; ela personifica a paixão, a dedicação e a união que transcendem o tempo.
+
+                   <br /> <br />Ao longo dos anos, a Acauã conquistou seu espaço não apenas nos campos de jogo, mas também nos corações da comunidade
+                </b>
+            </p>
+        </div>
+        <div>
+            <video width="100%" src="~/img/indioEmae.mp4" autoplay loop></video>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
